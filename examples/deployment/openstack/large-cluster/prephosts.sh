@@ -7,7 +7,7 @@ fi
 
 scp $1 salt-master:
 ssh salt-master "echo Host butler-* > .ssh/config"
-ssh salt-master "echo IdentityFile /home/centos/`basename $1` >> .ssh/config"
+ssh salt-master "echo IdentityFile /home/ec2-user/`basename $1` >> .ssh/config"
 ssh salt-master "chmod go-rwx .ssh/config"
 
 ssh -t salt-master "echo `terraform output db-server` butler-db-server | sudo tee -a /etc/hosts"

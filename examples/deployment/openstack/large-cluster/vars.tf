@@ -6,56 +6,90 @@ variable "password" {
 	default="CHANGE_ME"
 }
 variable "tenant_name" {
-	default="Pan-Prostate"
+	default="GenomicsVL_Devt"
 }
 variable "auth_url" {
-	
+	default="https://keystone.rc.nectar.org.au:5000/v2.0/"
 }
 
 variable "key_pair" {
-	default="sergei"
+	default="cloudman_key_pair"
 }
 
 
 variable "bastion_key_file" {
-
+     default="/mnt/butler/butler/cloudman_key_pair.pem"
 }
 
 variable "bastion_host" {
+    default="130.56.249.31"
 
 }
 
 variable "bastion_user" {
-	default = "iakhnin"
+	default = "ubuntu"
 }
 
 variable "image_id" {
-	default = "7457dc57-9765-4293-ab1b-8e03d748485f"
+	default = "f603db16-7adf-48a6-964f-1905f86fa31e"
 }
 
 variable "user" {
-	default = "centos"
+	default = "ec2-user"
 }
 
 variable "key_file" {
-
+    default="/mnt/butler/butler/cloudman_key_pair.pem"
 }
 
 variable "network_name" {
-	default = "Pan-Prostate_private"
+	default = "Classic Provider"
 }
 
 variable "main_network_id" {
-	default="d506eaf8-88b5-43c3-a751-a198672017e6"
+	default="00000000-0000-0000-0000-000000000000"
 }
 
 variable "pan_prostate_network_id" {
-	default="eb60b9be-0d31-41f0-b5d3-f6546cb13a67"
+	default="00000000-0000-0000-0000-000000000000"
 }
 variable "gnos_network_id" {
-	default="ee244fc2-9540-4523-a642-53d1fad0fb53"
+	default="00000000-0000-0000-0000-000000000000"
 }
 
 variable "floatingip_pool" {
-	default = "ext-net"
+	default = ""
 }
+
+variable "worker_flavor" {
+	default = "m2.medium"
+}
+
+variable "saltmaster_flavor" {
+	default = "m2.medium"
+}
+
+variable "dbserver_flavor" {
+	default = "m2.medium"
+}
+
+variable "dbmaster_flavor" {
+	default = "m2.medium"
+}
+
+variable "jobmaster_flavor" {
+	default = "m2.medium"
+}
+
+variable "jobqueue_flavor" {
+	default = "m2.medium"
+}
+
+variable "tracker_flavor" {
+	default = "m2.medium"
+}
+
+variable "default_sg" {
+	default = "CloudMan"
+}
+

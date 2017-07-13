@@ -3,8 +3,8 @@ resource "openstack_compute_instance_v2" "db-server" {
         depends_on = ["openstack_compute_instance_v2.salt-master"]
 
   	image_id = "${var.image_id}"
-	flavor_name = "s1.massive"
-	security_groups = ["${openstack_compute_secgroup_v2.allow-traffic.name}", "Pan-Prostate-Internal"]
+	flavor_name = "${var.dbmaster_flavor}"
+	security_groups = ["${openstack_compute_secgroup_v2.allow-traffic.name}", "${var.default_sg}"]
 	name = "butler-db-server"
 	network = {
 		name = "${var.network_name}"
@@ -15,7 +15,6 @@ resource "openstack_compute_instance_v2" "db-server" {
 	 	bastion_private_key = "${file(var.key_file)}"
 	 	bastion_host = "${var.bastion_host}"
 	 	bastion_user = "${var.bastion_user}"
-	 	agent = true
 	 	
 	}
 	key_pair = "${var.key_pair}"
